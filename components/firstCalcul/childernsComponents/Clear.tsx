@@ -55,23 +55,22 @@ export default function Clear({onTouchablePress, darkTheme}:any){
 
 const styles = StyleSheet.create({
 
-contentToutchs:{
+    contentToutchs:{
+    // borderColor:'purple',
+    // borderWidth: 4,
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        // borderColor:'purple',
-        // borderWidth: 4,
+        justifyContent: 'space-between',
         height:'15%',
         marginVertical:15,
     },
 
     morphTop:{
-        // borderWidth: 1,
-        flex:1,
+        // borderColor:'purple',
+        // borderWidth: 4,
         borderRadius:10,
-        width:'50%',
+        width:'48%',
         height:'100%',
-        marginHorizontal:10,
         shadowRadius: 9,
         shadowOffset: {width: -8, height: -8},
         shadowOpacity:1.3,

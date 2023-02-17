@@ -13,7 +13,7 @@ const colors = {
     textColorLightBTN: '#ffffff',
     textColorDarkBTN: '#000',
     BORDERColorLIGHT: '#e8e8e8',
-}
+};
 
 export default function BtnNumber({currentValue, onTouchablePress, darkTheme}:any){
 
@@ -29,7 +29,7 @@ export default function BtnNumber({currentValue, onTouchablePress, darkTheme}:an
         onTouchablePress(currentValue)
     }
     return(
-
+        
         <View style={[styles.morphTop, themeStyles.morphTop]}>
             <TouchableOpacity  style={[styles.morphBottom, themeStyles.morphBottom]}  onPress={() => handlePress()}>
                 <LinearGradient colors={darkTheme ? colorsLinear.backgroundLinearDarkBTN : colorsLinear.backgroundLinearLigthBTN } end={{x:0.1, y:0.9}} style={styles.boxLinearGradient}>
@@ -48,13 +48,11 @@ const styles = StyleSheet.create({
             width: 73,
             borderRadius:50,
             marginVertical:10,
-            marginLeft:19,
+            marginRight:'8%',
             shadowOffset: {width: -6, height: -6},
             shadowRadius:7,
             shadowOpacity:1,
             blurRadius:17,
-
-
     },
     
     morphBottom:{
@@ -66,7 +64,6 @@ const styles = StyleSheet.create({
         shadowRadius: 7,
         shadowOpacity:1,
         blurRadius:17,
-
     },
 
     boxLinearGradient:{
@@ -80,8 +77,6 @@ const styles = StyleSheet.create({
         borderRadius:10,
         color:'#FFF',
         fontSize: 40, 
-        marginHorizontal: 7,
-        marginBottom:12,
         textAlign:'center',
         // borderWidth: 2,
     },

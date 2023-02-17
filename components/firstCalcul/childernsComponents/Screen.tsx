@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
         borderBottomEndRadius:30,
         borderRadius :30,
         top: 0,
-
         // borderWidth:3,
         // borderColor:'orange',
     },

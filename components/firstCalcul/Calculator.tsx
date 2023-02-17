@@ -8,6 +8,7 @@ import Clear from './childernsComponents/Clear';
 import Equal from './childernsComponents/Equal';
 import Point from './childernsComponents/Point';
 import Screen from './childernsComponents/Screen';
+import { color } from 'react-native-reanimated';
 
 
 
@@ -64,29 +65,35 @@ export default function Calculator(){
 
     return(
 
-        <SafeAreaView style={[styles.contentAll, themesStyle.contentClavier]}>
+        <View style={[styles.contentAll, themesStyle.contentClavier]}>
             <Switch style={styles.Switchthem} 
                     value={isDarckTheme} 
                     onValueChange={() => setIsDarckTheme(!isDarckTheme)}
+                    trackColor={{true:'#FFFFFF', false:'#cacaca'}}
+                    thumbColor={isDarckTheme ? '#000000' : '#FFFFFF'}
             />
             <Screen darkTheme={isDarckTheme} currentValue={currentValue} resultText={resultText}/>
 
             <View style={styles.contentClavier}>
                 <Clear darkTheme={isDarckTheme} text={currentValue} onTouchablePress={onClearClick} />
+                
                 <View style={styles.contentSybolNumbers}>
                     <View style={styles.contentBtnAllNumbers}>
+                        
                         {numbers.map((number) => ( 
                             <BtnNumber darkTheme={isDarckTheme} key={number} currentValue={number} onTouchablePress={handleTouchablePress} />
                         ))}                            
+                        <View style={styles.contentPointEqual}>
+                            <Point darkTheme={isDarckTheme} onTouchablePress={handleSetDisplayCurrentValue}/>
+                            
+                            <Equal darkTheme={isDarckTheme} onTouchablePress={handleTouchablePress}/>
+                        </View>
                     </View>
-                    <OperatorSymbol style={styles.operators} onTouchablePress={handleTouchablePress} />
-
-
-                <Point  onTouchablePress={handleSetDisplayCurrentValue}/>
-                <Equal  onTouchablePress={handleTouchablePress}/>
+                    
+                    <OperatorSymbol darkTheme={isDarckTheme} onTouchablePress={handleTouchablePress} />
+                </View>
             </View>
         </View>
-    </SafeAreaView>
 
         
 
@@ -97,16 +104,16 @@ const styles = StyleSheet.create({
 
     
     contentAll:{
+        paddingTop:'30%',
         width: '100%',
         justifyContent: 'center',
         // borderColor:'red',
-        borderWidth: 4,
+        // borderWidth: 4,
         alignItems:'flex-end',
-        paddingHorizontal:200
+        paddingHorizontal:10
     },
     Switchthem:{
-        marginTop:80,
-        // marginRight:25
+        margin:25
     },
     contentClavier:{
         height:'80%',
@@ -130,7 +137,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         textAlign:'center',
-        marginHorizontal:5,
     },
 
         contentSybolNumbers:{
@@ -140,8 +146,6 @@ const styles = StyleSheet.create({
             // borderWidth: 4,
             height:'50%',
         },
-
-
 
         contentBtnAllNumbers:{
             // borderColor:'orange',   
@@ -153,35 +157,20 @@ const styles = StyleSheet.create({
             flexWrap: 'wrap',  
         },
 
-        contentAllSymbol:{
-            display: 'flex',
-            flexDirection:'row',
-            borderColor:'blue',   
-            borderWidth: 5,
-            right: 0,
-            width:'20%',
-            height:'100%',
-            justifyContent:'space-between'
+        contentPointEqual:{
+        // borderColor:'orange',   
+        // borderWidth: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContente:'space-between',
+        width:'60%'
         },
-
-        operators:{
-
-        },
-
-
-        contentToutchs:{
-            // borderColor:'green',   
-            // borderWidth: 2,
-        },
-
-
 });
 
 const darkModeStyle = StyleSheet.create({
 
     contentClavier:{
         backgroundColor:'#353434',
-
     },
 });
 
